@@ -5,23 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      input:valid {
+        color: navy;
+      }
+      input:invalid {
+        color: red;
+      }
+    </style>
   </head>
   <body>
     <h2>Validación de teléfono mediante a expresiones regulares:</h2>
 
-    <form action="/action_page.php">
-      <label for="fname"></label>
+    <form>
       <input
-        type="number"
-        id="name"
-        name="name"
+        type="text"
         placeholder="Enter 9 digits of your phone"
-        min="111111111"
-        max="999999999"
-        oninvalid="this.setCustomValidity('El número de teléfono ha de contener 9 cifras')"
-      /><br />
-      <br />
-      <button>Submit</button>
+        name="mobile"
+        oninvalid="alert('Introduce un número español válido')"
+        class="form-control"
+        pattern="(6[0-9]{8}|\+34\s?6[0-9]{8})$"
+        required
+      />
+      <input type="Submit" />
     </form>
   </body>
 </html>
